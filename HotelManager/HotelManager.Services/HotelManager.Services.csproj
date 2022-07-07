@@ -46,13 +46,16 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HotelManager.Data\HotelManager.Data.csproj">
-      <Project>{673a19e2-46cb-4158-b51a-c84ab3342811}</Project>
+      <Project>{8cbee5b3-aea8-4f0e-b2eb-22ada7353bbf}</Project>
       <Name>HotelManager.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\HotelManager.Model\HotelManager.Model.csproj">
       <Project>{dffbbac9-fa20-4092-b4b9-d3e9b24a3bb5}</Project>
       <Name>HotelManager.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
