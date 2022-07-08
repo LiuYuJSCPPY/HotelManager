@@ -36,3 +36,5 @@ E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManag
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Data\obj\Debug\HotelManager.Data.csproj.CopyComplete
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Data\obj\Debug\HotelManager.Data.dll
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Data\obj\Debug\HotelManager.Data.pdb
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Data\obj\Debug\HotelManager.Data.Migrations.init.resources
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Data\obj\Debug\HotelManager.Data.csproj.GenerateResource.cache

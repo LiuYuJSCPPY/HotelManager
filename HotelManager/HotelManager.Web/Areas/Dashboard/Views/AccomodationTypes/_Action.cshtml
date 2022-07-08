@@ -1,0 +1,41 @@
+﻿@model HotelManager.Model.AccomodationType
+
+
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">新增分類</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form id="SaveForm">
+        <input type="hidden" id="Id" name="Id" value="@Model.Id">
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name" name="Name" value="@Model.Name">
+        </div>
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text" name="Description"></textarea>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+    <button type="button" id="SaveBtn-btn" class="btn btn-primary">儲存</button>
+</div>
+
+<script>
+    $("#SaveBtn-btn").click(function (respone) {
+        $.ajax({
+            url: "@Url.Action("Action", "AccomodationTypes")",
+            type: "post",
+            data: $("SaveForm").serialize(),
+        }).done(function (respone) {
+            debugger;
+            if (respone.Success) {
+                debugger;
+                location.reload();
+            } 
+        })
+    })
+</script>
+

@@ -18,3 +18,5 @@ E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManag
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\obj\Debug\HotelManager.Services.csproj.CopyComplete
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\obj\Debug\HotelManager.Services.dll
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\obj\Debug\HotelManager.Services.pdb
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\EntityFramework.SqlServer.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\EntityFramework.SqlServer.xml

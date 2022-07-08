@@ -1,0 +1,38 @@
+﻿@model HotelManager.Web.Areas.ViewModel.AccomdationTypeViewModel
+@{
+    ViewBag.Title = "_Listing";
+}
+
+<thead>
+    <tr>
+        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">Name</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">Position</a></th>
+        <th data-sortable="" style="width: 15.7593%;"><a href="#" class="dataTable-sorter">Office</a></th>
+
+</thead>
+
+<tbody>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ActionForm">
+               更新
+            </button>
+
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                刪除
+            </button>
+           
+        </td>
+    </tr>
+</tbody>
+
+<div class="modal fade" id="ActionForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            
+        </div>
+    </div>
+</div>
