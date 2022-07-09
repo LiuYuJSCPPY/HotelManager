@@ -1,4 +1,4 @@
-﻿@model HotelManager.Model.AccomodationType
+﻿@model HotelManager.Web.Areas.ViewModel.AccomdationTypeActionModel
 
 
 <div class="modal-header">
@@ -9,12 +9,14 @@
     <form id="SaveForm">
         <input type="hidden" id="Id" name="Id" value="@Model.Id">
         <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name" name="Name" value="@Model.Name">
+            @Html.LabelFor(n => n.Name, new { @class = "col-form-label" })
+            @Html.TextBoxFor(n => n.Name,new { @class= "form-control" })
+           
         </div>
         <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text" name="Description"></textarea>
+            @Html.LabelFor(n => n.Description,new { @class= "col-form-label" })
+            @Html.TextAreaFor(d => d.Description,new { @class= "form-control" })
+           
         </div>
     </form>
 </div>
@@ -28,13 +30,15 @@
         $.ajax({
             url: "@Url.Action("Action", "AccomodationTypes")",
             type: "post",
-            data: $("SaveForm").serialize(),
+            data: $("#SaveForm").serialize(),
         }).done(function (respone) {
             debugger;
             if (respone.Success) {
                 debugger;
                 location.reload();
-            } 
+            } else {
+                debugger;
+            }
         })
     })
 </script>

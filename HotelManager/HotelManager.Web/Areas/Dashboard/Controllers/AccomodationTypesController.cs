@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using HotelManager.Data;
@@ -49,26 +50,58 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
 
 
         [HttpPost]
+        [ValidateInput(false)]
         public JsonResult Action(AccomdationTypeActionModel model)
         {
             JsonResult json = new JsonResult();
             bool Result = false;
 
-            if(model.Id > 0)
+            if (ModelState.IsValid)
             {
-                var AccomodationType = _accomodtaionType.GetAccomodationTypeById(model.Id);
-                AccomodationType.Name = model.Name;
-                AccomodationType.Description = model.Description;
-                Result = _accomodtaionType.UpdateAccomodationType(AccomodationType);
-            }
-            else
-            {
-                AccomodationType SaveType = new AccomodationType();
-                SaveType.Name = model.Name;
-                SaveType.Description = model.Description;
+                
 
-                Result = _accomodtaionType.SaveAccomodationType(SaveType);
+                if (model.Id > 0)
+                {
+                    StringBuilder sbCommText = new StringBuilder();
+                    sbCommText.Append(HttpUtility.HtmlEncode(model.Description));
+                    sbCommText.Replace("&lt;b&gt;", "<b>");
+                    sbCommText.Replace("&lt;/b&gt;", "</b>");
+                    sbCommText.Replace("&lt;u&gt;", "<u>");
+                    sbCommText.Replace("&lt;/u&gt;", "</u>");
+                    model.Description = sbCommText.ToString();
+
+                    AccomodationType accomodationType = new AccomodationType();
+                    accomodationType.Id = model.Id;
+                    accomodationType.Name = model.Name;
+                    accomodationType.Description = model.Description;
+                    
+                    Result = _accomodtaionType.UpdateAccomodationType(accomodationType);
+                }
+                else
+                {
+                    StringBuilder sbCommText = new StringBuilder();
+                    sbCommText.Append(HttpUtility.HtmlEncode(model.Description));
+                    sbCommText.Replace("&lt;b&gt;", "<b>");
+                    sbCommText.Replace("&lt;/b&gt;", "</b>");
+                    sbCommText.Replace("&lt;u&gt;", "<u>");
+                    sbCommText.Replace("&lt;/u&gt;", "</u>");
+                    model.Description = sbCommText.ToString();
+
+                    AccomodationType SaveType = new AccomodationType();
+                    SaveType.Name = model.Name;
+                    SaveType.Description = model.Description;
+
+                    Result = _accomodtaionType.SaveAccomodationType(SaveType);
+                }        
             }
+                      
+            
+               
+
+         
+            
+
+            
 
 
             if (Result)
@@ -88,6 +121,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             AccomodationType model = new AccomodationType();
             var accomodationTypeId = _accomodtaionType.GetAccomodationTypeById(Id);
             model.Id = accomodationTypeId.Id;
+            model.Name = accomodationTypeId.Name;
 
             return PartialView("_Delete", model);
         }

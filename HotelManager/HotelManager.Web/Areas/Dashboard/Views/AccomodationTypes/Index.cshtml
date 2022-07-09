@@ -24,7 +24,7 @@
                                 <option value="25">25</option>
                             </select> 資料數量
                         </label>
-                        <button type="button" id="Form" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                        <button type="button" id="Form" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action","AccomodationTypes")" data-bs-toggle="modal" data-bs-target="#ActionForm">
                             新增分類
                         </button>
                     </div>
@@ -61,9 +61,9 @@
 </div>
 
 <script>
-    $("#Form").click(function () {
-        $.ajax({
-            url: "@Url.Action("Action", "AccomodationTypes")",
+    $(".data-btn").click(function () {
+        $.ajax({ 
+            url: $(this).attr("data-herf"),
             type: "get",
         }).done(function (respone) {
             debugger;

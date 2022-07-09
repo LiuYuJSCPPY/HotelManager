@@ -20,7 +20,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         // GET: Dashboard/AccomdationPackages
         public ActionResult Index()
         {
-            AccomdationPackageViewModel ListAllAccomdationPackage = new AccomdationPackageViewModel();
+            AccomdationPackageListViewModel ListAllAccomdationPackage = new AccomdationPackageListViewModel();
             ListAllAccomdationPackage.accomdationPackages = _accomdationPackage.ToListAccomdationPackages();
             return View(ListAllAccomdationPackage);
         }
@@ -32,6 +32,8 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             return PartialView("_Action");
         }
 
+
+        
         // GET: Dashboard/AccomdationPackages/Details/5
         public ActionResult Details(int? id)
         {
