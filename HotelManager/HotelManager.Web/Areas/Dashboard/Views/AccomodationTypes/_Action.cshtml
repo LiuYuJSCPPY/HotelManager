@@ -2,7 +2,15 @@
 
 
 <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">新增分類</h5>
+    @if (Model.Id > 0)
+    {
+        <h5 class="modal-title" id="exampleModalLabel">更新分類</h5>     
+    }
+    else
+    {
+        <h5 class="modal-title" id="exampleModalLabel">新增分類</h5>
+    }
+    
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">

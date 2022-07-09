@@ -1,7 +1,63 @@
-﻿
-@{
-    ViewBag.Title = "_Action";
-}
+﻿@model HotelManager.Web.Areas.ViewModel.FormAccomdationPackageViewModel
 
-<h2>_Action</h2>
+<div class="modal-header">
+    @if (Model.Id > 0)
+    {
+        <h5 class="modal-title" id="exampleModalLabel">更新住宿</h5>
+    }
+    else
+    {
+        <h5 class="modal-title" id="exampleModalLabel">新增住宿</h5>
+    }
 
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form id="SaveForm">
+        <input type="hidden" id="Id" name="Id" value="@Model.Id">
+        <div class="mb-3">
+            @Html.LabelFor(n => n.Name, new { @class = "col-form-label" })
+            @Html.TextBoxFor(n => n.Name, new { @class = "form-control" })
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(n => n.AccomodationTypeId, new { @class = "col-form-label" })
+            @Html.DropDownListFor(n => n.AccomodationTypeId, Model.AccomodationType, "==請選擇==", new { @class = "form-control" })
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(n => n.NoOfRoom, new { @class = "col-form-label" })
+           @Html.TextBoxFor(n => n.NoOfRoom,new { @class = "form-control" })
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(n => n.PericeNigeth, new { @class = "col-form-label" })
+           @Html.TextBoxFor(n => n.PericeNigeth, new { @class = "form-control" })
+
+        </div>
+        
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+    <button type="button" id="SaveBtn-btn" class="btn btn-primary">儲存</button>
+</div>
+
+<script>
+    $("#SaveBtn-btn").click(function () {
+        $.ajax({
+            url: "@Url.Action("Action", "AccomdationPackages")",
+            type: "post",
+            data: $("#SaveForm").serialize(),
+        }).done(function (respone) {
+            debugger;
+            if (respone.Success) {
+                debugger;
+                location.reload();
+            } else {
+                debugger;
+            }
+        })
+    })
+
+</script>

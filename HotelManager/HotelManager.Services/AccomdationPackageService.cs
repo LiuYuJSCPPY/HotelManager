@@ -31,5 +31,12 @@ namespace HotelManager.Services
             _context.AccomdationPackages.Add(accomdationPackage);
             return _context.SaveChanges() > 0;
         }
+        public bool UpdateAccomdationPackage(AccomdationPackage accomdationPackage)
+        {
+            HotelManagerContext _context = new HotelManagerContext();
+            _context.Entry(accomdationPackage).State = EntityState.Modified;
+            return _context.SaveChanges() > 0;
+            
+        }
     }
 }

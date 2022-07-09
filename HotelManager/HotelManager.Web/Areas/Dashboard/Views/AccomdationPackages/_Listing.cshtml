@@ -3,5 +3,63 @@
     ViewBag.Title = "_Listing";
 }
 
-<h2></h2>
+<thead>
+    <tr>
+        <th data-sortable="" style="width: 16.6275%;"><a href="#" class="dataTable-sorter">名字</a></th>
+        <th data-sortable="" style="width: 16.2264%;"><a href="#" class="dataTable-sorter">房間分類</a></th>
+        <th data-sortable="" style="width: 16.2264%;"><a href="#" class="dataTable-sorter">房間型號</a></th>
+        <th data-sortable="" style="width: 16.2264%;"><a href="#" class="dataTable-sorter">房間圖片</a></th>
+        <th data-sortable="" style="width: 16.2264%;"><a href="#" class="dataTable-sorter">價錢</a></th>
 
+</thead>
+
+<tbody>
+    @foreach (var item in Model.accomdationPackages)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                @item.AccomodationType.Name
+            </td>
+            <td>
+                @item.NoOfRoom
+            </td>
+            @if(item.AccomdationPackagePictures == null)
+            {
+                <td>
+                    尚未有圖片
+                </td>
+            }
+            else
+            {
+                <td>
+                    @item.AccomdationPackagePictures.Count()
+                </td>
+
+            }
+            <td>
+                @item.PericeNigeth
+            </td>
+
+            <td>
+                <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "AccomdationPackages", new { Id = item.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    更新
+                </button>
+
+                <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","AccomdationPackages",new { Id =item.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    刪除
+                </button>
+
+            </td>
+        </tr>
+    }
+
+</tbody>
+
+<div class="modal fade" id="ActionForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>

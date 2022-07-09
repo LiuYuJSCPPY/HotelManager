@@ -31,8 +31,8 @@
                                 <option value="25">25</option>
                             </select> 資料數量
                         </label>
-                        <button type="button" id="Form" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ActionForm">
-                            新增 住宿
+                        <button type="button" id="Form" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action","AccomdationPackages")" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                            新增住宿型號
                         </button>
                     </div>
                     <div class="dataTable-search">
@@ -67,3 +67,14 @@
     </div>
 </div>
 
+<script>
+    $(".data-btn").click(function () {
+        $.ajax({
+            url: $(this).attr("data-herf"),
+            type: "get",
+        }).done(function (respone) {
+            debugger;
+            $(".modal .modal-content").html(respone);
+        })
+    })
+</script>

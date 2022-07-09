@@ -15,7 +15,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
     public class AccomdationPackagesController : Controller
     {
-        private HotelManagerContext db = new HotelManagerContext();
+        private HotelManagerContext _db = new HotelManagerContext();
         private AccomdationPackageService _accomdationPackage = new AccomdationPackageService();
         // GET: Dashboard/AccomdationPackages
         public ActionResult Index()
@@ -25,14 +25,54 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             return View(ListAllAccomdationPackage);
         }
 
-        public ActionResult Action()
+        public ActionResult Action(int? Id)
         {
+            FormAccomdationPackageViewModel model = new FormAccomdationPackageViewModel();
 
+            if (Id.HasValue)
+            {
+                var EditAccomodationPackage = _accomdationPackage.GetAccomdationPackageById(Id.Value);
+                model.Id = EditAccomodationPackage.Id;
+                model.Name = EditAccomodationPackage.Name;
+                model.AccomodationTypeId = EditAccomodationPackage.AccomodationTypeId;
+                model.NoOfRoom = EditAccomodationPackage.NoOfRoom;
+                model.PericeNigeth = EditAccomodationPackage.PericeNigeth;
+            }
+            model.AccomodationType = _db.AccomodationTypes.Select(AccomodationType => new SelectListItem
+            {
+                Text = AccomodationType.Name,
+                Value = AccomodationType.Id.ToString(),
+            }).ToList();
 
-            return PartialView("_Action");
+            return PartialView("_Action", model);
         }
 
+        [HttpPost]
+        public JsonResult Action([Bind(Include = "Id,Name,AccomodationTypeId,NoOfRoom,PericeNigeth")]AccomdationPackage accomdationPackage )
+        {
+            JsonResult json = new JsonResult();
+            bool Result = false;
 
+            if(accomdationPackage.Id > 0)
+            {
+                Result = _accomdationPackage.UpdateAccomdationPackage(accomdationPackage);
+            }
+            else
+            {
+                Result = _accomdationPackage.SaveAccomdationPackage(accomdationPackage);
+            }
+
+
+            if (Result)
+            {
+                json.Data = new { Success = true };
+            }
+            else
+            {
+                json.Data = new { Success = false, Message = "Error" };
+            }
+            return json;
+        }
         
         // GET: Dashboard/AccomdationPackages/Details/5
         public ActionResult Details(int? id)
@@ -41,7 +81,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccomdationPackage accomdationPackage = db.AccomdationPackages.Find(id);
+            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
             if (accomdationPackage == null)
             {
                 return HttpNotFound();
@@ -52,7 +92,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         // GET: Dashboard/AccomdationPackages/Create
         public ActionResult Create()
         {
-            ViewBag.AccomodationTypeId = new SelectList(db.AccomodationTypes, "Id", "Name");
+            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name");
             return View();
         }
 
@@ -65,12 +105,12 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AccomdationPackages.Add(accomdationPackage);
-                db.SaveChanges();
+                _db.AccomdationPackages.Add(accomdationPackage);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AccomodationTypeId = new SelectList(db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
+            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
             return View(accomdationPackage);
         }
 
@@ -81,12 +121,12 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccomdationPackage accomdationPackage = db.AccomdationPackages.Find(id);
+            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
             if (accomdationPackage == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AccomodationTypeId = new SelectList(db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
+            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
             return View(accomdationPackage);
         }
 
@@ -99,11 +139,11 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(accomdationPackage).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(accomdationPackage).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AccomodationTypeId = new SelectList(db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
+            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
             return View(accomdationPackage);
         }
 
@@ -114,7 +154,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccomdationPackage accomdationPackage = db.AccomdationPackages.Find(id);
+            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
             if (accomdationPackage == null)
             {
                 return HttpNotFound();
@@ -127,9 +167,9 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AccomdationPackage accomdationPackage = db.AccomdationPackages.Find(id);
-            db.AccomdationPackages.Remove(accomdationPackage);
-            db.SaveChanges();
+            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
+            _db.AccomdationPackages.Remove(accomdationPackage);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -137,7 +177,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }
