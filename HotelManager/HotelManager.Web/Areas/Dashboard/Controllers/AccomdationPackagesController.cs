@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,7 +49,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         }
 
         [HttpPost]
-        public JsonResult Action([Bind(Include = "Id,Name,AccomodationTypeId,NoOfRoom,PericeNigeth")]AccomdationPackage accomdationPackage )
+        public JsonResult Action([Bind(Include = "Id,Name,AccomodationTypeId,NoOfRoom,PericeNigeth")]AccomdationPackage accomdationPackage, HttpPostedFileBase[] Files)
         {
             JsonResult json = new JsonResult();
             bool Result = false;
@@ -56,8 +57,12 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             if(accomdationPackage.Id > 0)
             {
                 Result = _accomdationPackage.UpdateAccomdationPackage(accomdationPackage);
-            }
-            else
+            }else if(Files != null && _accomdationPackage.SaveAccomdationPackage(accomdationPackage))
+            {
+               
+                Result = SaveImage(accomdationPackage.Name, accomdationPackage.Id, Files);
+
+            }else
             {
                 Result = _accomdationPackage.SaveAccomdationPackage(accomdationPackage);
             }
@@ -73,105 +78,98 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             }
             return json;
         }
-        
-        // GET: Dashboard/AccomdationPackages/Details/5
-        public ActionResult Details(int? id)
+
+
+
+        public ActionResult Delete(int Id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
-            if (accomdationPackage == null)
-            {
-                return HttpNotFound();
-            }
-            return View(accomdationPackage);
+
+            AccomdationPackage DeleteaccomdationPackage = _accomdationPackage.GetAccomdationPackageById(Id);
+
+            return PartialView("_Delete",DeleteaccomdationPackage);
         }
 
-        // GET: Dashboard/AccomdationPackages/Create
-        public ActionResult Create()
-        {
-            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name");
-            return View();
-        }
-
-        // POST: Dashboard/AccomdationPackages/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AccomodationTypeId,Name,NoOfRoom,PericeNigeth")] AccomdationPackage accomdationPackage)
+        public JsonResult Delete([Bind(Include ="Id")]AccomdationPackage accomdationPackage )
         {
-            if (ModelState.IsValid)
+            JsonResult json = new JsonResult();
+            bool Result = false;
+            var findPackage = _db.AccomdationPackagePictures.Where(x => x.AccomdationPackageId == accomdationPackage.Id).ToList();
+            if (findPackage != null)
             {
-                _db.AccomdationPackages.Add(accomdationPackage);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                DeleteImage(accomdationPackage.Id);
+            }
+            Result = _accomdationPackage.DeleteAccomdationPackage(accomdationPackage.Id);
+            if (Result)
+            {
+                json.Data = new { Success = true };
+
+            }
+            else
+            {
+                json.Data = new { Success = true, Message = "Error" };
             }
 
-            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
-            return View(accomdationPackage);
+            return json;
         }
 
-        // GET: Dashboard/AccomdationPackages/Edit/5
-        public ActionResult Edit(int? id)
+        private bool DeleteImage(int Id)
         {
-            if (id == null)
+            List<AccomdationPackagePicture> accomdationPackagePictures = _db.AccomdationPackagePictures.Where(x => x.AccomdationPackageId == Id).ToList();
+
+            foreach(AccomdationPackagePicture DeleteImage in accomdationPackagePictures)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                string DeleteImagePage = Request.MapPath(DeleteImage.URL.ToString());
+                if (System.IO.File.Exists(DeleteImagePage))
+                {
+                    System.IO.File.Delete(DeleteImagePage);
+                }
+                _db.AccomdationPackagePictures.Remove(DeleteImage);
+               
             }
-            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
-            if (accomdationPackage == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
-            return View(accomdationPackage);
+
+            return _db.SaveChanges() > 0;
         }
 
-        // POST: Dashboard/AccomdationPackages/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AccomodationTypeId,Name,NoOfRoom,PericeNigeth")] AccomdationPackage accomdationPackage)
+        private bool SaveImage(string AccPackname,int Id, HttpPostedFileBase[] Files)
         {
-            if (ModelState.IsValid)
+
+            string SavePath = Server.MapPath("~/Areas/Image/AccomdationPackage/");
+            AccomdationPackagePicture accomdationPackagePicture = new AccomdationPackagePicture();
+            var accomdationPackageName = _db.AccomdationPackages.Where(x => x.Id == Id).First();
+
+            if (!Directory.Exists(SavePath))
             {
-                _db.Entry(accomdationPackage).State = EntityState.Modified;
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                Directory.CreateDirectory(SavePath);
             }
-            ViewBag.AccomodationTypeId = new SelectList(_db.AccomodationTypes, "Id", "Name", accomdationPackage.AccomodationTypeId);
-            return View(accomdationPackage);
+
+
+            foreach (HttpPostedFileBase File in Files)
+            {
+                string FileName = File.FileName;
+                string _FileName = $"{Guid.NewGuid()}{FileName}{DateTime.Now.ToString("yyyymmssfff")}";
+                string extension = Path.GetExtension(File.FileName);
+                string path = Path.Combine(SavePath, _FileName);
+                accomdationPackagePicture.AccomdationPackageId = accomdationPackageName.Id;
+                accomdationPackagePicture.URL = "~/Areas/Image/AccomdationPackage/" + _FileName;
+                if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jepg" || extension.ToLower() == ".png")
+                {
+                    _db.AccomdationPackagePictures.Add(accomdationPackagePicture);
+                    if (_db.SaveChanges() > 0)
+                    {
+                        File.SaveAs(path);
+                    }
+
+                }
+
+            }
+
+
+            return false;
         }
 
-        // GET: Dashboard/AccomdationPackages/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
-            if (accomdationPackage == null)
-            {
-                return HttpNotFound();
-            }
-            return View(accomdationPackage);
-        }
 
-        // POST: Dashboard/AccomdationPackages/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            AccomdationPackage accomdationPackage = _db.AccomdationPackages.Find(id);
-            _db.AccomdationPackages.Remove(accomdationPackage);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+
 
         protected override void Dispose(bool disposing)
         {

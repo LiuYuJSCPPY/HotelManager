@@ -1,0 +1,32 @@
+﻿@model HotelManager.Model.AccomdationPackage
+
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">刪除分類</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <h3>你確定要刪除 @Model.Name ?</h3>
+    <form id="SaveForm">
+        <input type="hidden" name="Id" value="@Model.Id">
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+    <button type="button" id="SaveBtn-btn" class="btn btn-primary">刪除</button>
+</div>
+
+<script>
+    $("#SaveBtn-btn").click(function () {
+        $.ajax({
+            url: "@Url.Action("Delete", "AccomdationPackages")",
+            type: "post",
+            data: $("#SaveForm").serialize(),
+        }).done(function (respone) {
+            debugger;
+            if (respone.Success) {
+                location.reload();
+            } 
+        })
+    })
+</script>

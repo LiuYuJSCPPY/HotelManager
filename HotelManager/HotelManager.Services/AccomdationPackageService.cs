@@ -7,6 +7,8 @@ using HotelManager.Model;
 using HotelManager.Data;
 using System.Data.Entity;
 
+
+
 namespace HotelManager.Services
 {
     public class AccomdationPackageService
@@ -22,10 +24,10 @@ namespace HotelManager.Services
         {
             HotelManagerContext _context = new HotelManagerContext();
             return _context.AccomdationPackages.Find(Id);
-
+            
         }
 
-        public bool SaveAccomdationPackage(AccomdationPackage accomdationPackage)
+        public bool SaveAccomdationPackage(AccomdationPackage accomdationPackage )
         {
             HotelManagerContext _context = new HotelManagerContext();
             _context.AccomdationPackages.Add(accomdationPackage);
@@ -38,5 +40,18 @@ namespace HotelManager.Services
             return _context.SaveChanges() > 0;
             
         }
+
+        public bool DeleteAccomdationPackage(int Id)
+        {
+            HotelManagerContext _context = new HotelManagerContext();
+            AccomdationPackage DeleteAccomdationPackage = _context.AccomdationPackages.Find(Id);
+            _context.AccomdationPackages.Remove(DeleteAccomdationPackage);
+
+            return _context.SaveChanges() > 0;
+        }
+
+
+
+        
     }
 }

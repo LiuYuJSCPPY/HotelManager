@@ -263,13 +263,10 @@
     <Content Include="Areas\Dashboard\Views\AccomodationTypes\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomodationTypes\_Action.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomodationTypes\_Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\AccomdationPackages\Create.cshtml" />
-    <Content Include="Areas\Dashboard\Views\AccomdationPackages\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\AccomdationPackages\Details.cshtml" />
-    <Content Include="Areas\Dashboard\Views\AccomdationPackages\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Action.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Listing.cshtml" />
+    <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -321,6 +318,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dashboard\Data\" />
+    <Folder Include="Areas\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

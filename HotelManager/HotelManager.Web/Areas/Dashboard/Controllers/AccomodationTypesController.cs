@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -76,6 +77,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
                     accomodationType.Description = model.Description;
                     
                     Result = _accomodtaionType.UpdateAccomodationType(accomodationType);
+
                 }
                 else
                 {
@@ -91,18 +93,14 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
                     SaveType.Name = model.Name;
                     SaveType.Description = model.Description;
 
+                    
+                  
                     Result = _accomodtaionType.SaveAccomodationType(SaveType);
+                    
+                    
                 }        
             }
                       
-            
-               
-
-         
-            
-
-            
-
 
             if (Result)
             {
@@ -149,6 +147,9 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
 
         }
 
+     
+       
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
