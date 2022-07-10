@@ -182,8 +182,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Dashboard\Controllers\AccomdationPackagesController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\AccomdationsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\AccomodationTypesAPIController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\AccomodationTypesController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\HotelUsersController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\RolesController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\ViewModel\AccomdationPackageViewModel.cs" />
     <Compile Include="Areas\ViewModel\AccomdationTypeViewModel.cs" />
@@ -267,6 +270,16 @@
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Action.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Delete.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\Delete.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\Details.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\HotelUsers\Create.cshtml" />
+    <Content Include="Areas\Dashboard\Views\HotelUsers\Delete.cshtml" />
+    <Content Include="Areas\Dashboard\Views\HotelUsers\Details.cshtml" />
+    <Content Include="Areas\Dashboard\Views\HotelUsers\Edit.cshtml" />
+    <Content Include="Areas\Dashboard\Views\HotelUsers\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -318,6 +331,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dashboard\Data\" />
+    <Folder Include="Areas\Dashboard\Views\Roles\" />
     <Folder Include="Areas\Image\" />
   </ItemGroup>
   <ItemGroup>

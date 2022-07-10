@@ -34,77 +34,77 @@ namespace HotelManager.Web
     }
 
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-    public class ApplicationUserManager : UserManager<HotelUser>
-    {
-        public ApplicationUserManager(IUserStore<HotelUser> store)
-            : base(store)
-        {
-        }
+    //public class ApplicationUserManager : UserManager<HotelUser>
+    //{
+    //    public ApplicationUserManager(IUserStore<HotelUser> store)
+    //        : base(store)
+    //    {
+    //    }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
-        {
-            var manager = new ApplicationUserManager(new UserStore<HotelUser>(context.Get<ApplicationDbContext>()));
-            // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<HotelUser>(manager)
-            {
-                AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
-            };
+    //    public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
+    //    {
+    //        var manager = new ApplicationUserManager(new UserStore<HotelUser>(context.Get<ApplicationDbContext>()));
+    //        // Configure validation logic for usernames
+    //        manager.UserValidator = new UserValidator<HotelUser>(manager)
+    //        {
+    //            AllowOnlyAlphanumericUserNames = false,
+    //            RequireUniqueEmail = true
+    //        };
 
-            // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
-            {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
-            };
+    //        // Configure validation logic for passwords
+    //        manager.PasswordValidator = new PasswordValidator
+    //        {
+    //            RequiredLength = 6,
+    //            RequireNonLetterOrDigit = true,
+    //            RequireDigit = true,
+    //            RequireLowercase = true,
+    //            RequireUppercase = true,
+    //        };
 
-            // Configure user lockout defaults
-            manager.UserLockoutEnabledByDefault = true;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+    //        // Configure user lockout defaults
+    //        manager.UserLockoutEnabledByDefault = true;
+    //        manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    //        manager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
-            // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
-            // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<HotelUser>
-            {
-                MessageFormat = "Your security code is {0}"
-            });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<HotelUser>
-            {
-                Subject = "Security Code",
-                BodyFormat = "Your security code is {0}"
-            });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
-            var dataProtectionProvider = options.DataProtectionProvider;
-            if (dataProtectionProvider != null)
-            {
-                manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<HotelUser>(dataProtectionProvider.Create("ASP.NET Identity"));
-            }
-            return manager;
-        }
-    }
+    //        // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
+    //        // You can write your own provider and plug it in here.
+    //        manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<HotelUser>
+    //        {
+    //            MessageFormat = "Your security code is {0}"
+    //        });
+    //        manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<HotelUser>
+    //        {
+    //            Subject = "Security Code",
+    //            BodyFormat = "Your security code is {0}"
+    //        });
+    //        manager.EmailService = new EmailService();
+    //        manager.SmsService = new SmsService();
+    //        var dataProtectionProvider = options.DataProtectionProvider;
+    //        if (dataProtectionProvider != null)
+    //        {
+    //            manager.UserTokenProvider = 
+    //                new DataProtectorTokenProvider<HotelUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+    //        }
+    //        return manager;
+    //    }
+    //}
 
-    // Configure the application sign-in manager which is used in this application.
-    public class ApplicationSignInManager : SignInManager<HotelUser, string>
-    {
-        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
-            : base(userManager, authenticationManager)
-        {
-        }
+    //// Configure the application sign-in manager which is used in this application.
+    //public class ApplicationSignInManager : SignInManager<HotelUser, string>
+    //{
+    //    public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
+    //        : base(userManager, authenticationManager)
+    //    {
+    //    }
 
-        public override Task<ClaimsIdentity> CreateUserIdentityAsync(HotelUser user)
-        {
-            return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
-        }
+    //    public override Task<ClaimsIdentity> CreateUserIdentityAsync(HotelUser user)
+    //    {
+    //        return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
+    //    }
 
-        public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
-        {
-            return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
-        }
-    }
+    //    public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
+    //    {
+    //        return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+    //    }
+    //}
 }

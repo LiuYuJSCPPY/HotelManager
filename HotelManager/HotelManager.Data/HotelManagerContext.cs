@@ -28,6 +28,7 @@ namespace HotelManager.Data
         public virtual DbSet<AccomdationPicture> AccomdationPictures { get; set; }
         public virtual DbSet<AccomodationType> AccomodationTypes { get; set; }
 
+        public System.Data.Entity.DbSet<HotelManager.Model.HotelUser> HotelUsers { get; set; }
     }
 }
 
