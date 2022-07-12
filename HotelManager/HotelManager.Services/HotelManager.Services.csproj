@@ -79,9 +79,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccomdationPackageService.cs" />
+    <Compile Include="AccomdationsService.cs" />
     <Compile Include="AccomodtaionTypeService.cs" />
     <Compile Include="HotelManagerSingInManager.cs" />
     <Compile Include="HotelManagerUserManager.cs" />
+    <Compile Include="HotelRoleManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

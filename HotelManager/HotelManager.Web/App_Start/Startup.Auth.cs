@@ -8,6 +8,7 @@ using Owin;
 using HotelManager.Web.Models;
 using HotelManager.Model;
 using HotelManager.Services;
+using HotelManager.Data;
 
 namespace HotelManager.Web
 {
@@ -17,7 +18,7 @@ namespace HotelManager.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(HotelManagerContext.Create);
             app.CreatePerOwinContext<HotelManagerUserManager>(HotelManagerUserManager.Create);
             app.CreatePerOwinContext<HotelManagerSingInManager>(HotelManagerSingInManager.Create);
 

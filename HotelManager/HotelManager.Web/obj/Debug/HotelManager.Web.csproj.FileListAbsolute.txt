@@ -121,5 +121,7 @@ E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManag
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\obj\Debug\HotelManager.Web.csproj.CopyComplete
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\obj\Debug\HotelManager.Web.dll
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\obj\Debug\HotelManager.Web.pdb
-E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\obj\Debug\HotelManager.Web.Migrations.init.resources
-E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\obj\Debug\HotelManager.Web.csproj.GenerateResource.cache
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\PagedList.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\PagedList.Mvc.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\PagedList.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\PagedList.Mvc.xml

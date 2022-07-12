@@ -1,0 +1,41 @@
+﻿@model HotelManager.Web.Areas.ViewModel.AllAccomdationViewMmodel
+<thead>
+    <tr>
+        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">Name</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">Position</a></th>
+
+
+</thead>
+
+<tbody>
+    @foreach (var item in Model.accomdations)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                @Html.Raw(@item.Description)
+            </td>
+
+            <td>
+                <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "Accomdations", new { Id = item.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    更新
+                </button>
+
+                <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","Accomdations",new { Id =item.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    刪除
+                </button>
+
+            </td>
+        </tr>
+    }
+
+</tbody>
+
+<div class="modal fade" id="ActionForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+

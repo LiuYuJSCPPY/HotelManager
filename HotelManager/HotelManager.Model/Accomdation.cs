@@ -14,6 +14,7 @@ namespace HotelManager.Model
     public class Accomdation
     {
         public int Id { get; set; }
+        
         public int AccomdationPackageId { get; set; }
         public virtual AccomdationPackage AccomdationPackage { get; set; }
         

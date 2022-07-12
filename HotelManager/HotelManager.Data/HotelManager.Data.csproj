@@ -90,9 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HotelManagerContext.cs" />
-    <Compile Include="Migrations\202207070749450_init.cs" />
-    <Compile Include="Migrations\202207070749450_init.designer.cs">
-      <DependentUpon>202207070749450_init.cs</DependentUpon>
+    <Compile Include="Migrations\202207120940475_init.cs" />
+    <Compile Include="Migrations\202207120940475_init.designer.cs">
+      <DependentUpon>202207120940475_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,8 +108,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202207070749450_init.resx">
-      <DependentUpon>202207070749450_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202207120940475_init.resx">
+      <DependentUpon>202207120940475_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

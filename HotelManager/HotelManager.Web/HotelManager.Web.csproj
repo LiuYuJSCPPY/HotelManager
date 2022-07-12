@@ -47,6 +47,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -185,22 +191,18 @@
     <Compile Include="Areas\Dashboard\Controllers\AccomdationsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\AccomodationTypesAPIController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\AccomodationTypesController.cs" />
-    <Compile Include="Areas\Dashboard\Controllers\HotelUsersController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\DashboradUserController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\RolesController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\ViewModel\AccomdationPackageViewModel.cs" />
     <Compile Include="Areas\ViewModel\AccomdationTypeViewModel.cs" />
+    <Compile Include="Areas\ViewModel\AccomdationViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202207070742012_init.cs" />
-    <Compile Include="Migrations\202207070742012_init.designer.cs">
-      <DependentUpon>202207070742012_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -212,6 +214,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -270,16 +273,15 @@
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Action.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomdationPackages\_Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Accomdations\Create.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Accomdations\Delete.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Accomdations\Details.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Accomdations\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\Accomdations\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\HotelUsers\Create.cshtml" />
     <Content Include="Areas\Dashboard\Views\HotelUsers\Delete.cshtml" />
     <Content Include="Areas\Dashboard\Views\HotelUsers\Details.cshtml" />
     <Content Include="Areas\Dashboard\Views\HotelUsers\Edit.cshtml" />
     <Content Include="Areas\Dashboard\Views\HotelUsers\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\_Action.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\_Listing.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Accomdations\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -331,6 +333,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dashboard\Data\" />
+    <Folder Include="Areas\Dashboard\Views\DashboradUser\" />
     <Folder Include="Areas\Dashboard\Views\Roles\" />
     <Folder Include="Areas\Image\" />
   </ItemGroup>
@@ -360,11 +363,6 @@
       <Project>{1f8b306f-e434-42b5-88ae-db66cbeb2a2d}</Project>
       <Name>HotelManager.Services</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202207070742012_init.resx">
-      <DependentUpon>202207070742012_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

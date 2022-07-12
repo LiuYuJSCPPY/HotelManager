@@ -22,5 +22,6 @@ namespace HotelManager.Model
         public int PericeNigeth { get; set; }
 
         public virtual ICollection<AccomdationPackagePicture> AccomdationPackagePictures { get; set; }
+        public virtual ICollection<Accomdation> Accomdations { get; set; }
     }
 }

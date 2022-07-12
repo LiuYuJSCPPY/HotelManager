@@ -20,3 +20,16 @@ E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManag
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\obj\Debug\HotelManager.Services.pdb
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\EntityFramework.SqlServer.dll
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\EntityFramework.SqlServer.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.Security.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Newtonsoft.Json.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Owin.dll
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.Security.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Services\bin\Debug\Newtonsoft.Json.xml
