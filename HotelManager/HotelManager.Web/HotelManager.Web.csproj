@@ -284,6 +284,8 @@
     <Content Include="Areas\Dashboard\Views\Accomdations\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\Accomdations\_Delete.cshtml" />
     <Content Include="Areas\Dashboard\Views\DashboradUser\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\HotelUsers\_Listing.cshtml" />
+    <Content Include="Areas\Dashboard\Views\DashboradUser\_Action.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

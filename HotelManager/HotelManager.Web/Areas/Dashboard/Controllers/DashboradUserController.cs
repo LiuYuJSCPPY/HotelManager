@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HotelManager.Web.Areas.ViewModel;
+using System.Threading.Tasks;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
@@ -64,12 +65,30 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         // GET: Dashboard/DashboradUser
         public ActionResult Index()
         {
-            var model = new UserViewModel();
-            var ListUser = UserManager.Users.AsQueryable();
+            var model = new AllUserToListViewModel();
+            var ListUser =  UserManager.Users.AsQueryable();
 
             model.hotelUsers = ListUser.ToList();
 
             return View(model);
+        }
+
+        public async Task<ActionResult> Action(string Id)
+        {
+            UserViewModel model = new UserViewModel();
+            var User = await UserManager.FindByIdAsync(Id);
+
+            model.Id = User.Id;
+            model.FullName = User.FullName;
+            model.Address = User.Address;
+            model.UserName = User.UserName;
+            model.Country = User.Country;
+            model.Email = User.Email;
+            model.City = User.City;
+            
+
+
+            return  PartialView("_Action",model);
         }
     }
 }
