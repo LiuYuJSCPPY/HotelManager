@@ -1,17 +1,40 @@
-﻿@{
-    Layout = null;
-}
+﻿@model HotelManager.Web.Areas.ViewModel.AllUserToListViewModel
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+<thead>
+    <tr>
+        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">Name</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">Position</a></th>
+
+
+</thead>
+
+<tbody>
+    @foreach (var User in Model.hotelUsers)
+    {
+        <tr>
+            <td>@User.FullName</td>
+            <td>
+                @User.Email
+            </td>
+            <td>
+                @User.UserName
+            </td>
+            <td>
+                @User.Roles.Count
+            </td>
+
+            <td>
+                <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "AccomodationTypes", new { Id = User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    更新
+                </button>
+
+                <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","AccomodationTypes",new { Id =User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    刪除
+                </button>
+
+            </td>
+        </tr>
+    }
+
+</tbody>

@@ -1,4 +1,4 @@
-﻿@model HotelManager.Web.Areas.ViewModel.UserViewModel
+﻿@model HotelManager.Web.Areas.ViewModel.AllUserToListViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -37,7 +37,7 @@
                 <div class="dataTable-container">
                     <table id="datatablesSimple" class="dataTable-table">
 @{ 
-    Html.RenderPartial("_listing", Model);
+    Html.RenderPartial("_Listing", Model);
 }
 
                     </table>

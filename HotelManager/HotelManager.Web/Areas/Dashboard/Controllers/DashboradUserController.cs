@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using HotelManager.Web.Areas.ViewModel;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
@@ -73,10 +74,10 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> Action(string Id)
+        public ActionResult Action(string Id)
         {
             UserViewModel model = new UserViewModel();
-            var User = await UserManager.FindByIdAsync(Id);
+            var User =  UserManager.FindById(Id);
 
             model.Id = User.Id;
             model.FullName = User.FullName;
@@ -88,7 +89,64 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             
 
 
-            return  PartialView("_Action",model);
+            return PartialView("_Action",model);
+        }
+
+        [HttpPost]
+        public JsonResult Action(UserViewModel model)
+        {
+            JsonResult json = new JsonResult();
+            IdentityResult result = null;
+
+            if (!string.IsNullOrEmpty(model.Id))
+            {
+                var user = UserManager.FindById(model.Id);
+                user.FullName = model.FullName;
+                user.Email = model.Email;
+                user.City = model.City;
+                user.Country = model.Country;
+                user.Address = model.Address;
+                user.UserName = model.UserName;
+
+                result = UserManager.Update(user);
+
+            }
+
+            json.Data = new { Success = result.Succeeded, Message = string.Join(",", result.Errors) };
+
+            return json;
+
+        }
+
+        public ActionResult Delete (string Id)
+        {
+
+            UserViewModel model = new UserViewModel();
+            var user = UserManager.FindById(Id);
+            model.Id = user.Id;
+
+            return PartialView("_Delete", model);
+        }
+
+        [HttpPost]
+        public JsonResult Delete(UserViewModel model)
+        {
+            JsonResult json = new JsonResult();
+            IdentityResult result = null;
+            if (!string.IsNullOrEmpty(model.Id))
+            {
+                var user = UserManager.FindById(model.Id);
+                result = UserManager.Delete(user);
+
+                json.Data = new { Success = result.Succeeded, Message = string.Join(",", result.Errors) };
+            }
+            else
+            {
+                json.Data = new { Success = false, Message = "Invalud User" };
+            }
+
+
+            return json;
         }
     }
 }

@@ -13,6 +13,8 @@ namespace HotelManager.Web.Areas.ViewModel
         public IEnumerable<HotelUser> hotelUsers { get; set; }
     }
 
+
+
     public class UserViewModel 
     { 
         public string Id { get; set; }
