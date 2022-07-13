@@ -48,3 +48,20 @@
     <button type="button" id="SaveBtn-btn" class="btn btn-primary">儲存</button>
 </div>
 
+<script>
+    $("#SaveBtn-btn").click(function () {
+        $.ajax({
+            url: "@Url.Action("Action", "DashboradUser")",
+            type: "post",
+            data: $("#SaveForm").serialize(),
+        }).done(function (respone) {
+            debugger;
+            if (respone.Success) {
+                debugger;
+                location.reload();
+            } else {
+                debugger;
+            }
+        })
+    })
+</script>

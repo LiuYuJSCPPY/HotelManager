@@ -25,11 +25,11 @@
             </td>
 
             <td>
-                <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "AccomodationTypes", new { Id = User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "DashboradUser", new { Id = User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
                     更新
                 </button>
 
-                <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","AccomodationTypes",new { Id =User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","DashboradUser",new { Id =User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
                     刪除
                 </button>
 
@@ -38,3 +38,27 @@
     }
 
 </tbody>
+
+<div class="modal fade" id="ActionForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    $(".data-btn").click(function () {
+        $.ajax({
+            url: $(this).attr("data-herf"),
+            type: "get",
+
+        }).done(function (respone) {
+            debugger;
+            $(".modal .modal-content").html(respone);
+        })
+    })
+</script>

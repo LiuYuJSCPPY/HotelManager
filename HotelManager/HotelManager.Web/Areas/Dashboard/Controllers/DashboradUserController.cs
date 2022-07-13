@@ -93,7 +93,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
         }
 
         [HttpPost]
-        public JsonResult Action(UserViewModel model)
+        public JsonResult Action(string Id,UserViewModel model)
         {
             JsonResult json = new JsonResult();
             IdentityResult result = null;
@@ -124,6 +124,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             UserViewModel model = new UserViewModel();
             var user = UserManager.FindById(Id);
             model.Id = user.Id;
+            model.UserName=user.UserName;
 
             return PartialView("_Delete", model);
         }
