@@ -197,6 +197,7 @@
     <Compile Include="Areas\ViewModel\AccomdationPackageViewModel.cs" />
     <Compile Include="Areas\ViewModel\AccomdationTypeViewModel.cs" />
     <Compile Include="Areas\ViewModel\AccomdationViewModel.cs" />
+    <Compile Include="Areas\ViewModel\RoleViewModel.cs" />
     <Compile Include="Areas\ViewModel\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -282,6 +283,10 @@
     <Content Include="Areas\Dashboard\Views\DashboradUser\_Action.cshtml" />
     <Content Include="Areas\Dashboard\Views\DashboradUser\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\DashboradUser\_Delete.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Roles\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Roles\_Action.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Roles\_Listing.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Roles\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -333,7 +338,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dashboard\Data\" />
-    <Folder Include="Areas\Dashboard\Views\Roles\" />
     <Folder Include="Areas\Image\" />
   </ItemGroup>
   <ItemGroup>

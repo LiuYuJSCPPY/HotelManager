@@ -1,0 +1,38 @@
+﻿@model HotelManager.Web.Areas.ViewModel.RoelViewModel
+@{
+    ViewBag.Title = "_Delete";
+}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">刪除權限</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <h3>你確定要刪除 @Model.name ?</h3>
+    <form id="SaveForm">
+        <input type="hidden" name="Id" value="@Model.Id">
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+    <button type="button" id="Delete-btn" class="btn btn-primary">刪除</button>
+</div>
+
+<script>
+    $("#Delete-btn").click(function () {
+        $.ajax({
+            url: "@Url.Action("Delete", "Roles")",
+            type: "post",
+            data: $("#SaveForm").serialize(),
+        }).done(function (respone) {
+            debugger;
+            if (respone.Success) {
+                debugger;
+                window.location.href = "@Url.Action("Index","Roles")";
+            } else {
+                debugger;
+            }
+        })
+    })
+</script>
