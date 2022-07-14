@@ -96,7 +96,7 @@
                             url: "@Url.Action("UserRoles", "DashboradUser",new { Id =Model.UserID  })",
 
                         }).done(function (respone) {
-                            $("#actionModal .modal-dialog").html(response);
+                            $(".modal .modal-content").html(response);
                         })
 
                     } else {
