@@ -32,6 +32,9 @@
                 <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","DashboradUser",new { Id =User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
                     刪除
                 </button>
+                <button type="button" class="data-btn btn btn-info" data-herf="@Url.Action("UserRoles", "DashboradUser", new { ID = User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm"><i class="fas fa-user-shield mr-1"></i> 使用者權限 </button>
+
+                
 
             </td>
         </tr>

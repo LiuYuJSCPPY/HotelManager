@@ -25,5 +25,13 @@ namespace HotelManager.Web.Areas.ViewModel
         public string City { get; set; }
         public string Address { get; set; }
     }
-    
+
+    public class UserRoleViewModel
+    {
+        public string UserID { get; set; }
+        public IEnumerable<IdentityRole> Roles { get; set; }
+
+        public IEnumerable<IdentityRole> UserRoles { get; set; }
+    }
+
 }

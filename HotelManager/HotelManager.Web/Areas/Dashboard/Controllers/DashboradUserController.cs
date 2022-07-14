@@ -149,5 +149,49 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
 
             return json;
         }
+
+
+        public ActionResult UserRoles(string Id)
+        {
+            UserRoleViewModel model = new UserRoleViewModel();
+
+            model.UserID = Id;
+            var user = UserManager.FindById(Id);
+            var UserRoles = user.Roles.Select(x => x.RoleId).ToList();
+            model.UserRoles = HotelRoleManager.Roles.Where(x => UserRoles.Contains(x.Id)).ToList();
+            model.Roles = HotelRoleManager.Roles.Where(x => !UserRoles.Contains(Id)).ToList();
+
+            return PartialView("_UserRoles", model);
+        }
+
+        [HttpPost]
+        public JsonResult UserRoleOperation(string UserID, string RoleId, bool IsDelet = false)
+        {
+            JsonResult json = new JsonResult();
+
+            var User = UserManager.FindById(UserID);
+            var Role = HotelRoleManager.FindById(RoleId);
+
+            if(User != null && Role != null)
+            {
+                IdentityResult result = null;
+                if (!IsDelet)
+                {
+                    result = UserManager.AddToRole(UserID, Role.Name);
+                }
+                else
+                {
+                    result = UserManager.RemoveFromRole(UserID, Role.Name);
+                }
+
+                json.Data = new { Success = result.Succeeded, Message = $"{result.Errors}" };
+            }
+            else
+            {
+                json.Data = new { Success = false, Message = "Invalid operation." };
+            }
+
+            return json;
+        }
     }
 }
