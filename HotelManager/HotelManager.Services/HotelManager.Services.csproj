@@ -84,6 +84,7 @@
     <Compile Include="HotelManagerSingInManager.cs" />
     <Compile Include="HotelManagerUserManager.cs" />
     <Compile Include="HotelRoleManager.cs" />
+    <Compile Include="HotelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

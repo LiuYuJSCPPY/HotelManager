@@ -17,7 +17,7 @@
     <AssemblyName>HotelManager.Web</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44360</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -201,6 +201,7 @@
     <Compile Include="Areas\ViewModel\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,11 +211,13 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AccomdationViewModel.cs" />
     <Compile Include="Views\Shared\ErrorResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="WebShare\Attribute\CustomizeCacheAttribute.cs" />
     <Compile Include="WebShare\WebShareConst.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -222,9 +225,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Font\custom.css" />
-    <Content Include="Content\Font\style.min.css" />
-    <Content Include="Content\Font\styles-merged.css" />
+    <Content Include="Content\font\animate\animate.css" />
+    <Content Include="Content\font\animate\animate.min.css" />
+    <Content Include="Content\font\css\bootstrap.min.css" />
+    <Content Include="Content\font\css\style.css" />
+    <Content Include="Content\font\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\font\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\font\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\font\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\font\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\font\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\font\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\font\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\font\tempusdominus\css\tempusdominus-bootstrap-4.css" />
+    <Content Include="Content\font\tempusdominus\css\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -298,9 +312,19 @@
     <Content Include="Areas\Dashboard\Views\Roles\_Delete.cshtml" />
     <Content Include="Areas\Dashboard\Views\DashboradUser\_UserRoles.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\Font\custom.js" />
-    <Content Include="Scripts\Font\main.min.js" />
-    <Content Include="Scripts\Font\scripts.js" />
+    <Content Include="Scripts\Font\js\counterup.min.js" />
+    <Content Include="Scripts\Font\js\easing.js" />
+    <Content Include="Scripts\Font\js\easing.min.js" />
+    <Content Include="Scripts\Font\js\main.js" />
+    <Content Include="Scripts\Font\js\moment-timezone.min.js" />
+    <Content Include="Scripts\Font\js\moment.min.js" />
+    <Content Include="Scripts\Font\js\owl.carousel.js" />
+    <Content Include="Scripts\Font\js\owl.carousel.min.js" />
+    <Content Include="Scripts\Font\js\tempusdominus-bootstrap-4.js" />
+    <Content Include="Scripts\Font\js\tempusdominus-bootstrap-4.min.js" />
+    <Content Include="Scripts\Font\js\waypoints.min.js" />
+    <Content Include="Scripts\Font\js\wow.js" />
+    <Content Include="Scripts\Font\js\wow.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -351,6 +375,7 @@
     <Content Include="Views\Error\UnauthorizedError.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\InternalServerError.cshtml" />
+    <Content Include="Views\Hotel\ListRoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -409,7 +434,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51385</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44360/</IISUrl>
+          <IISUrl>http://localhost/HotelManager.Web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

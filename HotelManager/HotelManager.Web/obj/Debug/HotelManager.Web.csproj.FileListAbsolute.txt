@@ -125,3 +125,5 @@ E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManag
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\PagedList.Mvc.dll
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\PagedList.xml
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\PagedList.Mvc.xml
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\obj\Debug\HotelManager.Web.Views.Shared.ErrorResource.resources
+E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\obj\Debug\HotelManager.Web.csproj.GenerateResource.cache
