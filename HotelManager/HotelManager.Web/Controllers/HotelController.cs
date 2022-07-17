@@ -36,33 +36,23 @@ namespace HotelManager.Web.Controllers
 
 
         [HttpPost]
-        public JsonResult Action(BookAccmodation roomBookings, int? Id)
+        public JsonResult Action(BookAccmodation roomBookings)
         {
             JsonResult json = new JsonResult();
             bool Result = false;
 
 
-            if (Id.HasValue)
+            if (roomBookings!= null)
             {
                int TotalDay = Convert.ToInt32((roomBookings.BookingTo - roomBookings.BookingFrom).TotalDays);
                 AccomdationPackage package = _db.AccomdationPackages.Single(model => model.Id == roomBookings.accomdationPackageId);
                 int TotalPrice = package.PericeNigeth * TotalDay;
                 roomBookings.TotalAmount = TotalPrice;
-                _db.Entry(roomBookings).State = EntityState.Modified;
-                Result = _db.SaveChanges() > 0;
-
-            }
-            else
-            {
-                int NumberofDays = Convert.ToInt32((roomBookings.BookingTo - roomBookings.BookingFrom).TotalDays);
-                AccomdationPackage objectRoom = _db.AccomdationPackages.Single(model => model.Id == roomBookings.accomdationPackageId);
-                decimal RoomPrice = objectRoom.PericeNigeth;
-                decimal TotalPrice = RoomPrice * NumberofDays;
-                roomBookings.TotalAmount = TotalPrice;
-
                 _db.BookAccmodations.Add(roomBookings);
                 Result = _db.SaveChanges() > 0;
+
             }
+           
 
 
 

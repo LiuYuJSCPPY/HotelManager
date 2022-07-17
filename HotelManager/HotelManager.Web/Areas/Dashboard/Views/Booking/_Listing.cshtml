@@ -1,9 +1,15 @@
 ﻿@model HotelManager.Web.Areas.ViewModel.BookListViewModel
 <thead>
     <tr>
-        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">Name</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">Position</a></th>
-
+        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">使用者名稱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
 
 </thead>
 
@@ -21,7 +27,7 @@
                 int TotalDays = Convert.ToInt32((book.BookingTo - book.BookingFrom).TotalDays);
             } @TotalDays </td>
             <td>@book.TotalAmount</td>
-            <td>@book.HotelUser.UserName</td>
+        
 
 
             @*<td>
