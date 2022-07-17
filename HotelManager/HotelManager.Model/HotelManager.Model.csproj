@@ -94,6 +94,7 @@
     <Compile Include="AccomdationPackagePicture.cs" />
     <Compile Include="AccomdationPicture.cs" />
     <Compile Include="AccomodationType.cs" />
+    <Compile Include="BookAccmodation.cs" />
     <Compile Include="HotelUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

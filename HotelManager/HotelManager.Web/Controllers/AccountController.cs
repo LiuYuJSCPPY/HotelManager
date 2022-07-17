@@ -12,6 +12,7 @@ using HotelManager.Web.Models;
 using HotelManager.Model;
 using HotelManager.Services;
 
+
 namespace HotelManager.Web.Controllers
 {
     [Authorize]
@@ -157,6 +158,8 @@ namespace HotelManager.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var defaultRole = "會員";
+                    await UserManager.AddToRoleAsync(user.Id, defaultRole);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

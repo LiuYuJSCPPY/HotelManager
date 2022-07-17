@@ -1,0 +1,40 @@
+﻿@model HotelManager.Web.Areas.ViewModel.BookListViewModel
+<thead>
+    <tr>
+        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">Name</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">Position</a></th>
+
+
+</thead>
+
+<tbody>
+    @foreach(var book in Model.BookAccmodations)
+    {
+        <tr>
+            <td>@book.HotelUser.UserName</td>
+            <td>@book.HotelUser.Email</td>
+            <td>@book.Adult</td>
+            <td>@book.Child</td>
+            <td>@book.BookingFrom</td>
+            <td>@book.BookingTo</td>
+            <td>@{ 
+                int TotalDays = Convert.ToInt32((book.BookingTo - book.BookingFrom).TotalDays);
+            } @TotalDays </td>
+            <td>@book.TotalAmount</td>
+            <td>@book.HotelUser.UserName</td>
+
+
+            @*<td>
+                <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "Accomdations", new { Id = book.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    更新
+                </button>
+
+                <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","Accomdations",new { Id =book.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
+                    刪除
+                </button>
+
+            </td>*@
+        </tr>
+    }
+
+</tbody>

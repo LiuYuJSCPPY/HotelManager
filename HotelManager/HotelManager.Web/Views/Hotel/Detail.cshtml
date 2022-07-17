@@ -1,0 +1,163 @@
+﻿@model HotelManager.Model.AccomdationPackage
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+            <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>
+            <h1 class="mb-5">訂房間: <span class="text-primary text-uppercase">@Model.Name</span></h1>
+        </div>
+        <div class="row g-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
+                    <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">Hotelier</span></h1>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <div class="row g-3 pb-4">
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                            <div class="border rounded p-1">
+                                <div class="border rounded text-center p-4">
+                                    <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
+                                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                    <p class="mb-0">Rooms</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+                            <div class="border rounded p-1">
+                                <div class="border rounded text-center p-4">
+                                    <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
+                                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                    <p class="mb-0">Staffs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
+                            <div class="border rounded p-1">
+                                <div class="border rounded text-center p-4">
+                                    <i class="fa fa-users fa-2x text-primary mb-2"></i>
+                                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                    <p class="mb-0">Clients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        @foreach(var item in Model.AccomdationPackagePictures.Take(4))
+            {
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="@Url.Content(item.URL)" style="margin-top: 25%; visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;">
+                    </div>
+            }
+                        
+                        
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        <div class="row g-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-12">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <form id="SaveForm">
+                            <div class="row g-3">
+                                <input type="hidden" name="accomdationPackageId" value="@Model.Id">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        <input type="text" name="BookingFrom" class="BookDate form-control " id="checkin" placeholder="Check In">
+                                        <label for="checkin">Check In</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date4" data-target-input="nearest">
+                                        <input type="text" name="BookingTo" class="BookDate form-control " id="checkout" placeholder="Check Out" >
+                                        <label for="checkout">Check Out</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="Adult" id="select1">
+                                            <option value="1">Adult 1</option>
+                                            <option value="2">Adult 2</option>
+                                            <option value="3">Adult 3</option>
+                                            <option value="1">Adult 1</option>
+                                            <option value="2">Adult 2</option>
+                                            <option value="3">Adult 3</option>
+                                            <option value="4">Adult 4</option>
+                                            <option value="5">Adult 5</option>
+                                            <option value="6">Adult 6</option>
+                                            <option value="7">Adult 7</option>
+                                            <option value="8">Adult 8</option>
+                                            <option value="9">Adult 9</option>
+                                        </select>
+                                        <label for="select1">Select Adult</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="Child" id="select2">
+                                            <option value="1">Child 1</option>
+                                            <option value="2">Child 2</option>
+                                            <option value="3">Child 3</option>
+                                            <option value="4">Child 4</option>
+                                            <option value="5">Child 5</option>
+                                            <option value="6">Child 6</option>
+                                            <option value="7">Child 7</option>
+                                            <option value="8">Child 8</option>
+                                            <option value="9">Child 9</option>
+                                        </select>
+                                        <label for="select2">Select Child</label>
+                                    </div>
+                                </div>
+                                
+                               
+                                <div class="col-12">
+                                    <button id="BookId" class="btn btn-primary w-100 py-3" type="submit">預訂房間</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $(".BookDate").datepicker({
+            dateFormat: "yy-MM-dd",
+            changeMonth: true,
+            changeYear: true,
+            showOn: "button",
+            sideBySide: true,
+            controlType: "select",
+        });
+    });
+
+    $("#BookId").click(function () {
+        $.ajax({
+            url: "@Url.Action("Action","Hotel")",
+            type: "post",
+            data: $("#SaveForm").serialize(),
+        }).done(function (respone) {
+            if (respone.Success) {
+                debugger;
+                window.location.href = "@Url.Action("ListRoom","Hotel")";
+            } else {
+                debugger;
+            }
+
+        })
+    })
+       
+</script>
+

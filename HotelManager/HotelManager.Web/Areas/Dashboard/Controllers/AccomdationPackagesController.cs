@@ -60,7 +60,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             }else if(Files != null && _accomdationPackage.SaveAccomdationPackage(accomdationPackage))
             {
                
-                Result = SaveImage(accomdationPackage.Name, accomdationPackage.Id, Files);
+                Result = SaveImage(accomdationPackage.Id, Files);
 
             }else
             {
@@ -131,39 +131,43 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             return _db.SaveChanges() > 0;
         }
 
-        private bool SaveImage(string AccPackname,int Id, HttpPostedFileBase[] Files)
+        private bool SaveImage(int Id, HttpPostedFileBase[] Files)
         {
 
             string SavePath = Server.MapPath("~/Areas/Image/AccomdationPackage/");
             AccomdationPackagePicture accomdationPackagePicture = new AccomdationPackagePicture();
-            var accomdationPackageName = _db.AccomdationPackages.Where(x => x.Id == Id).First();
+            
 
             if (!Directory.Exists(SavePath))
             {
                 Directory.CreateDirectory(SavePath);
             }
 
-
-            foreach (HttpPostedFileBase File in Files)
+            if(Files != null)
             {
-                string FileName = File.FileName;
-                string _FileName = $"{Guid.NewGuid()}{FileName}{DateTime.Now.ToString("yyyymmssfff")}";
-                string extension = Path.GetExtension(File.FileName);
-                string path = Path.Combine(SavePath, _FileName);
-                accomdationPackagePicture.AccomdationPackageId = accomdationPackageName.Id;
-                accomdationPackagePicture.URL = "~/Areas/Image/AccomdationPackage/" + _FileName;
-                if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jepg" || extension.ToLower() == ".png")
+                foreach (HttpPostedFileBase File in Files)
                 {
-                    _db.AccomdationPackagePictures.Add(accomdationPackagePicture);
-                    if (_db.SaveChanges() > 0)
+                    string FileName = File.FileName;
+                    string _FileName = $"{Guid.NewGuid()}{DateTime.Now.ToString("yyyymmssfff")}{FileName}";
+                    string extension = Path.GetExtension(File.FileName);
+                    string path = Path.Combine(SavePath, _FileName);
+                    accomdationPackagePicture.AccomdationPackageId = Id;
+                    accomdationPackagePicture.URL = "~/Areas/Image/AccomdationPackage/" + _FileName;
+                    if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jepg" || extension.ToLower() == ".png")
                     {
-                        File.SaveAs(path);
+                        _db.AccomdationPackagePictures.Add(accomdationPackagePicture);
+                        if (_db.SaveChanges() > 0)
+                        {
+                            File.SaveAs(path);
+                        }
+
                     }
 
                 }
 
-            }
 
+                return true;
+            }
 
             return false;
         }

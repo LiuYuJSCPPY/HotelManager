@@ -18,10 +18,12 @@
                     <div class="row g-4">
                         @foreach (var accomdation in Model.accomdations)
                         {
+                            var picture = accomdation.accomdationPictures != null ? accomdation.accomdationPictures.FirstOrDefault() : null;
+                            var pictureURL = picture != null ? picture.URL : "default-image.jpg";
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                                 <div class="room-item shadow rounded overflow-hidden">
                                     <div class="position-relative">
-                                        <img class="img-fluid" src="img/room-2.jpg" alt="">
+                                        <img class="img-fluid" src="@Url.Content(@pictureURL)" alt="">
 
                                     </div>
                                     <div class="p-4 mt-2">

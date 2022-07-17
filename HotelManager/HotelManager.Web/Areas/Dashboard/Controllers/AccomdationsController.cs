@@ -155,9 +155,9 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
                   foreach(var File in Files)
                   {
                         string FileName = File.FileName;
-                        string _FileName = $"{Guid.NewGuid()}{FileName}{DateTime.Now.ToString("yyyymmssfff")}";
+                        string _FileName = $"{Guid.NewGuid()}{DateTime.Now.ToString("yyyymmssfff")}{FileName}";
                         var Extesion = Path.GetExtension(File.FileName);
-                        var AccomdationSavePath = Path.Combine(SavePath, FileName);
+                        var AccomdationSavePath = Path.Combine(SavePath, _FileName);
                         accomdationPicture.AccomdationId = Id;
                         accomdationPicture.URL = "~/Areas/Image/Accomdation/" + _FileName;
                         if (Extesion.ToLower() == ".jpg" || Extesion.ToLower() == ".jepg" || Extesion.ToLower() == ".png")

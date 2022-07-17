@@ -27,7 +27,7 @@ namespace HotelManager.Data
         public virtual DbSet<AccomdationPackagePicture> AccomdationPackagePictures { get; set; }
         public virtual DbSet<AccomdationPicture> AccomdationPictures { get; set; }
         public virtual DbSet<AccomodationType> AccomodationTypes { get; set; }
-
+         public virtual DbSet<BookAccmodation> BookAccmodations { get; set; }
         
     }
 }
