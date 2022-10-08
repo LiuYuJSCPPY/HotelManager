@@ -13,6 +13,7 @@ using HotelManager.Model;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
+
     public class AccomodationTypesAPIController : ApiController
     {
         private HotelManagerContext db = new HotelManagerContext();

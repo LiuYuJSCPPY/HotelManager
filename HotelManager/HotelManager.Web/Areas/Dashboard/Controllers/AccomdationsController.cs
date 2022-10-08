@@ -15,6 +15,7 @@ using System.Text;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
+
     public class AccomdationsController : Controller
     {
         private HotelManagerContext _db = new HotelManagerContext();

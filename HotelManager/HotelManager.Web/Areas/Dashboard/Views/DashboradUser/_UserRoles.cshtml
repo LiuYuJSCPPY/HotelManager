@@ -33,6 +33,7 @@
                         <td>
                             @role.Name
                         </td>
+                        
                         <td>
                             <button data-href="@Url.Action("UserRoleOperation", "Users", new { userID = Model.UserID, roleID = role.Id, isDelete = true })" type="button" class="btnRoleOperation btn btn-danger"><i class="fas fa-user-times mr-1"></i> Delete</button>
                         </td>
@@ -56,7 +57,10 @@
             <thead>
                 <tr>
                     <th colspan="2">
-                        Assign New Roles
+                        權限名稱
+                    </th>
+                    <th colspan="2">
+                        人數
                     </th>
                 </tr>
             </thead>
@@ -64,8 +68,11 @@
                 @foreach (var role in Model.Roles)
                 {
                     <tr>
-                        <td>
+                        <td colspan="2">
                             @role.Name
+                        </td>
+                        <td colspan="2">
+                            @role.Users.Count()
                         </td>
                         <td>
                             <button data-href="@Url.Action("UserRoleOperation", "DashboradUser", new { userID = Model.UserID, roleID = role.Id })" type="button" class="btnRoleOperation btn btn-success"><i class="fas fa-user-check mr-1"></i> Assign</button>

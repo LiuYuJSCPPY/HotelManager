@@ -3,8 +3,11 @@
 
 <thead>
     <tr>
-        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">Name</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">Position</a></th>
+        <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">全名</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">使用者名稱</a></th>
+       
+        
 
 
 </thead>
@@ -20,9 +23,7 @@
             <td>
                 @User.UserName
             </td>
-            <td>
-                @User.Roles.Count
-            </td>
+           
 
             <td>
                 <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "DashboradUser", new { Id = User.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">

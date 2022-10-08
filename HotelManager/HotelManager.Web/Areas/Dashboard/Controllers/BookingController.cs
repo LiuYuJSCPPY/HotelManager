@@ -9,6 +9,7 @@ using HotelManager.Data;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
+
     public class BookingController : Controller
     {
 

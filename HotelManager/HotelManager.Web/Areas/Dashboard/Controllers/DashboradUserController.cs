@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
+
     public class DashboradUserController : Controller
     {
         private HotelManagerSingInManager _signInManager;

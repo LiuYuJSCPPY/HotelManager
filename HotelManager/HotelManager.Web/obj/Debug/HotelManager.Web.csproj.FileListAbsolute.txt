@@ -88,7 +88,6 @@ E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManag
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\Microsoft.Owin.Security.xml
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\Microsoft.Owin.Security.Facebook.xml
-E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\Microsoft.Owin.Security.Cookies.xml
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\Microsoft.Owin.Security.Google.xml
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\Microsoft.Owin.Security.Twitter.xml
 E:\0_MyDocument\Visual_Studio_2022\Projects\HotelManager\HotelManager\HotelManager.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml

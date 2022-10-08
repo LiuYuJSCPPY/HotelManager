@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202207170221176_init.designer.cs">
       <DependentUpon>202207170221176_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210071343199_RenameColUserIdToColHotelUserId.cs" />
+    <Compile Include="Migrations\202210071343199_RenameColUserIdToColHotelUserId.designer.cs">
+      <DependentUpon>202210071343199_RenameColUserIdToColHotelUserId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +114,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202207170221176_init.resx">
       <DependentUpon>202207170221176_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210071343199_RenameColUserIdToColHotelUserId.resx">
+      <DependentUpon>202210071343199_RenameColUserIdToColHotelUserId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

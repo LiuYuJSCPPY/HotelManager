@@ -12,6 +12,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
+
+   
     public class RolesController : Controller
     {
         private HotelManagerSingInManager _signInManager;

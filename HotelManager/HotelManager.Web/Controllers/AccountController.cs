@@ -397,7 +397,7 @@ namespace HotelManager.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ListRoom", "Hotel");
         }
 
         //
@@ -454,7 +454,7 @@ namespace HotelManager.Web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ListRoom", "Hotel");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

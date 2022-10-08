@@ -42,12 +42,15 @@ namespace HotelManager.Web.Controllers
             bool Result = false;
 
 
-            if (roomBookings!= null)
+            if (roomBookings!= null && User.Identity.IsAuthenticated)
             {
                int TotalDay = Convert.ToInt32((roomBookings.BookingTo - roomBookings.BookingFrom).TotalDays);
                 AccomdationPackage package = _db.AccomdationPackages.Single(model => model.Id == roomBookings.accomdationPackageId);
                 int TotalPrice = package.PericeNigeth * TotalDay;
                 roomBookings.TotalAmount = TotalPrice;
+                roomBookings.HotelUserId = User.Identity.GetUserId();
+
+
                 _db.BookAccmodations.Add(roomBookings);
                 Result = _db.SaveChanges() > 0;
 

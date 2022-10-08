@@ -3,13 +3,13 @@
     <tr>
         <th data-sortable="" style="width: 19.6275%;"><a href="#" class="dataTable-sorter">使用者名稱</a></th>
         <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
-        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">信箱</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">成人</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">小孩</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">預訂日期</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">預訂日期</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">預定總天數</a></th>
+        <th data-sortable="" style="width: 29.2264%;"><a href="#" class="dataTable-sorter">總共價錢</a></th>
+        
 
 </thead>
 
@@ -17,7 +17,7 @@
     @foreach(var book in Model.BookAccmodations)
     {
         <tr>
-            <td>@book.HotelUser.UserName</td>
+            <td>@book.HotelUser.FullName</td>
             <td>@book.HotelUser.Email</td>
             <td>@book.Adult</td>
             <td>@book.Child</td>
@@ -30,16 +30,7 @@
         
 
 
-            @*<td>
-                <button type="button" class="data-btn btn btn-secondary" data-herf="@Url.Action("Action", "Accomdations", new { Id = book.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
-                    更新
-                </button>
-
-                <button type="button" class="data-btn btn btn-danger" data-herf="@Url.Action("Delete","Accomdations",new { Id =book.Id })" data-bs-toggle="modal" data-bs-target="#ActionForm">
-                    刪除
-                </button>
-
-            </td>*@
+           
         </tr>
     }
 

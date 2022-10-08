@@ -14,6 +14,7 @@ using HotelManager.Web.Areas.ViewModel;
 
 namespace HotelManager.Web.Areas.Dashboard.Controllers
 {
+
     public class AccomdationPackagesController : Controller
     {
         private HotelManagerContext _db = new HotelManagerContext();
