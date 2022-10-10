@@ -24,10 +24,31 @@
   
   4. 註冊會員:
     ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_10%20%E4%B8%8B%E5%8D%88%2004_12_19.png)
+    
 ##### 後端:
 
+  1. 民宿使用新增、更新、刪除(AJAX):
+   ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_54_24.png)
+   
+  2. 民宿類別使用新增、更新、刪除(AJAX):
+    ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_54_42.png)
+       
+  3. 訂單: 可以查看訂單
+   ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_54_48.png)   
     
-  
+  2. 使用者(更改使用者權限):
+    ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_54_55.png)  
+     ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_55_08.png)  
+    
+  2. 使用者權限使用新增、更新、刪除(AJAX):
+    ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_55_00.png)  
+    
+  2. 房號民稱使用新增、更新、刪除(AJAX):
+    ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_54_24.png) 
+
+    
+    
+    
 ## 操作影片  
 
 
