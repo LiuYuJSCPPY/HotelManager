@@ -19,14 +19,14 @@
   
 ## 展示圖片 
 ##### 前端:
-  1. 首頁 :
-    #### 首頁功能:
-      1. 顯示所有房號
+  1. 首頁(功能) :
+     
+     * 顯示所有房號
   ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_52_49.png)
   
-  2.  旅館介紹  :
-    #### 旅館介紹功能:
-      1. 預訂房間
+  2.  旅館介紹(功能)  :
+   
+      * 預訂房間
   ![image](https://github.com/LiuYuJSCPPY/HotelManager/blob/main/Image/Hotelier%20-%20Hotel%20HTML%20Template%20-%20%E5%80%8B%E4%BA%BA%20-%20Microsoft%E2%80%8B%20Edge%202022_10_9%20%E4%B8%8B%E5%8D%88%2004_53_14.png)
   
   3. 登入畫面:
