@@ -160,7 +160,7 @@ namespace HotelManager.Web.Areas.Dashboard.Controllers
             var user = UserManager.FindById(Id);
             var UserRoles = user.Roles.Select(x => x.RoleId).ToList();
             model.UserRoles = HotelRoleManager.Roles.Where(x => UserRoles.Contains(x.Id)).ToList();
-            model.Roles = HotelRoleManager.Roles.Where(x => !UserRoles.Contains(Id)).ToList();
+            model.Roles = HotelRoleManager.Roles.Where(x => !UserRoles.Contains(x.Id)).ToList();
 
             return PartialView("_UserRoles", model);
         }
